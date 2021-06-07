@@ -1,0 +1,332 @@
+// string buffer
+public class StringExample {
+	public static void main(String[] args) {
+		StringBuffer sb=new StringBuffer("HEllo");
+		sb.append("String");
+		System.out.println(sb);
+		sb.insert(1, "NEW");
+		System.out.println(sb);
+		sb.replace(1,3,"JAVA");
+		System.out.println(sb);	
+		sb.reverse();
+		System.out.println(sb);
+		String s1="Hello String";
+		char ch[]= {'s','t','r','i','n','g'};
+		String s2=new String(ch);		
+		String s3=new String("Example string");		
+		System.out.println(s3.length());		
+		System.out.println(s3.concat("New STring"));		
+		System.out.println(s3.indexOf('a'));
+		System.out.println(s3.charAt(0));
+		System.out.println(s3.hashCode());
+		System.out.println(s3);
+
+
+//try exception in java
+package com.training.org;
+class InvaliedAgeException extends Exception{
+	public InvaliedAgeException(String s) {
+		super(s);
+	}
+
+	public String getMyMessage() {
+		return "MY MEssage";
+	}
+}
+class TestCustomException{
+	public static void validate(int age) throws InvaliedAgeException {
+		if(age<18) {
+			throw new InvaliedAgeException("Not valied age");
+		}
+		else
+			System.out.println("Everything is ok for vote");
+	}
+}
+public class UserDefinedException {
+	public static void main(String[] args) {
+		try {
+			TestCustomException.validate(12);
+
+		}
+		catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+}
+		
+    
+
+
+//use of static keyword
+
+class Student{
+	String name;
+	int rollNo;
+	static String cllgName;
+	static int counter=0;
+	
+	
+	public Student(String name) {
+		this.name=name;
+		this.rollNo=setRollNo();
+	}
+	
+	static int setRollNo() {
+		counter++;
+		return counter;
+	}
+	
+	
+	static void setCllgName(String name) {
+		cllgName=name;
+	}
+	
+	void showStudentInfo() {
+		System.out.println("NAme"+this.name);
+		System.out.println("Roll no"+this.rollNo);
+		System.out.println("col name"+cllgName);
+	}
+	
+}
+
+public class StaicExample {
+
+	
+	public static void main(String[] args) {
+		Student.setCllgName("ABC");
+		
+		Student s1=new Student("EShan");
+		Student s2=new Student("Tanish");
+		
+		s1.showStudentInfo();
+		s2.showStudentInfo();
+	}
+}
+
+public class StaicExample {	
+	static int a=10;
+	static int b;
+	static {
+		System.out.println("static block is called");
+		b=a*4;
+	}
+	public static void main(String[] args) {
+		System.out.println("Main block");
+		System.out.println("A"+a);
+		System.out.println("B"+b);
+
+	}
+
+}
+
+public class StaicExample {
+	
+	static void show() {
+		System.out.println("show method is called");
+	}
+
+	public static void main(String[] args) {
+		show();
+
+	}
+
+}
+
+class Demo{
+	void show() {
+		System.out.println("Show method demo class");
+	}
+}
+
+class Flavor1Demo{
+	
+	static Hello h=new Hello() {
+
+		@Override
+		public void show() {
+			System.out.println("show method from Flvour1 is called");
+			
+		}
+	};
+	static Demo d=new Demo() {
+		void show() {
+			super.show();
+			System.out.println("Flavor1.demo.show");
+		}
+	};
+}
+
+interface Hello{
+	void show();
+}
+public class InnerClassExample {
+public static void main(String[] args) {
+	Flavor1Demo.h.show();
+	
+}
+}
+
+class Demo{
+	void show() {
+		System.out.println("Show method demo class");
+	}
+}
+
+class Flavor1Demo{
+	static Demo d=new Demo() {
+		void show() {
+			super.show();
+			System.out.println("Flavor1.demo.show");
+		}
+	};
+}
+
+public class InnerClassExample {
+public static void main(String[] args) {
+	Flavor1Demo.d.show();
+	
+}
+}
+
+class Outer{
+	void outerMethod() {
+		int x=100;
+		System.out.println("Outer method is called");
+		class Inner{
+			void innerMethod() {
+				System.out.println("Inner method is called"+x);
+			}
+		}
+		
+		Inner y=new Inner();
+		y.innerMethod();
+	}
+	
+}
+
+
+public class InnerClassExample {
+public static void main(String[] args) {
+	Outer o=new Outer();
+	o.outerMethod();
+}
+}
+
+
+class Outer{
+	void outerMethod() {
+		System.out.println("outer method outer class");	
+		class Inner{
+			void innerMethod() {
+				System.out.println("Inner method inner class");
+			}
+		}
+		
+		Inner i=new Inner();
+		i.innerMethod();
+	}
+}
+public class InnerClassExample {
+	
+	public static void main(String[] args) {
+		Outer o=new Outer();
+		o.outerMethod();
+	}
+
+}
+class Outer{
+	class Inner{
+		public void show() {
+			System.out.println("Show from Outer->Inner");
+		}
+	}
+}
+public class InnerClassExample {
+	public static void main(String[] args) {
+		Outer.Inner inner=new Outer().new Inner();
+		System.out.println(inner);
+		inner.show();
+	}
+
+}
+
+
+class Job{
+	private int id;
+	private String role;
+	private long salary;
+	public Job() {
+		id=0;
+		role="";
+		salary=0;
+	}
+	public Job(int id, String role, long salary) {
+		
+		this.id = id;
+		this.role = role;
+		this.salary = salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public long getSalary() {
+		return salary;
+	}
+	public void setSalary(long salary) {
+		this.salary = salary;
+	}
+	@Override
+	public String toString() {
+		return "Job [id=" + id + ", role=" + role + ", salary=" + salary + "]";
+	}
+}
+
+class Person{
+	private String name;
+	private Job job;   
+	public Person() {
+		name="";
+		job=new Job();
+	}
+	public Person(String name, Job job) {
+		super();
+		this.name = name;
+		this.job = job;
+	}
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", job=" + job + "]";
+	}	
+}
+public class ContainmentExample {
+	public static void main(String[] args) {
+		Person p=new Person("Eshan",new Job(101,"HR",34455));
+		System.out.println(p);		
+	}
+}
+
+//use of wrapper class in java
+public class WrapperClassExample {	
+	public static void xyz(Integer a) {
+		a=a*100;
+	}
+	public static void main(String[] args) {
+		@SuppressWarnings("removal")
+		Integer a=new Integer(100);
+		System.out.println("value of x is "+a);
+		xyz(a);
+		System.out.println("value of x is "+a);        
+        }
+    }
+
+    
