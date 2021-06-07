@@ -1,0 +1,228 @@
+//all ways of taking input in java
+
+package com.training.org;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class HelloWorld {
+	public static void main(String[] args) throws IOException {		
+		String name=System.console().readLine();
+		System.out.println("Name is "+name);
+		BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
+		String name=reader.readLine();
+		System.out.println("Name is "+name);
+		System.out.println("Hello Welcome to JAVA Programming");
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Enter your name");
+		String userName=myObj.nextLine();	
+		System.out.println("UserName is "+userName);
+		System.out.println("Enter your age");
+		int age=myObj.nextInt();
+		System.out.println("Enter your salary");
+		double salary=myObj.nextDouble();
+		System.out.println("Values are"+userName+" Age"+age+"Salary"+salary);
+	}
+}
+
+/*
+1] Accept two int values from user and print 
+   addition 
+   subtration
+   multiplication
+   division
+*/
+import java.util.Scanner;
+
+class Addition
+{
+ public static void main(String[] arg)
+ {
+  int a,b;
+  Scanner sc=new Scanner(System.in);
+  System.out.println("Enter first number");
+  a=sc.nextInt();
+  System.out.println("Enter second number");
+  b=sc.nextInt();
+  System.out.println(" Addition of two numbers is : "+addition(a,b));
+  System.out.println(" Addition of two numbers is : "+sub(a,b));
+  System.out.println(" Addition of two numbers is : "+mulp(a,b));
+  System.out.println(" Addition of two numbers is : "+div(a,b));
+
+  }
+
+ static int addition(int x,int y)
+ {
+	return x+y;
+ }
+
+ static int sub(int x,int y)
+ {
+	return x-y;
+ }
+
+ static int mulp(int x,int y)
+ {
+	return x-y;
+ }
+
+ static int div(int x,int y)
+ {
+	return x/y;
+ }
+ 
+}
+
+// switch case 
+
+
+
+package com.training.org;
+
+import java.util.Scanner;
+
+public class MethodExample {
+
+	public static void addition() {
+		System.out.println("Hello Welcome to JAVA Programming");
+
+		Scanner myObj = new Scanner(System.in);
+		
+		System.out.println("Enter first number");
+		int num1=myObj.nextInt();
+		int num2=myObj.nextInt();
+		
+		System.out.println("Addition of numbers is "+(num1+num2));
+	
+	}
+	
+	public static void substraction(int a,int b) {
+		
+	}
+	
+	public static void main(String[] args) {
+
+		Scanner myObj = new Scanner(System.in);
+		char ch='y';
+		do
+		{
+			System.out.println("1] Addition\n2] Subtraction\n3] Multiplication\n4] Division\n\nEnter your choice");
+			int choice=myObj.nextInt();
+			
+			switch(choice) {
+			case 1:
+					addition();
+					break;
+			case 2:
+					System.out.println("Enter two numbers");
+					int num1=myObj.nextInt();
+					int num2=myObj.nextInt();
+					
+					substraction(num1,num2);
+					
+					break;
+						
+				
+			}
+			System.out.println("Do you want to continue.....");
+			ch=myObj.next().charAt(0);
+		}while(ch=='y'||ch=='Y');
+			
+		if(ch=='n'||ch=='N') {
+			System.out.println("Thank you visit again");
+		}
+
+	}
+
+}
+
+
+//Default and parametrized constructor
+package com.training.org;
+
+import java.util.Scanner;
+
+public class MethodExample {
+
+	public static void addition() {
+		System.out.println("Hello Welcome to JAVA Programming");
+
+		Scanner myObj = new Scanner(System.in);
+		
+		System.out.println("Enter first number");
+		int num1=myObj.nextInt();
+		int num2=myObj.nextInt();
+		
+		System.out.println("Addition of numbers is "+(num1+num2))
+	}
+	public static void substraction(int a,int b) 
+	}
+	public static void main(String[] args) {
+		Scanner myObj = new Scanner(System.in);
+		char ch='y';
+		do
+		{
+			System.out.println("1] Addition\n2] Subtraction\n3] Multiplication\n4] Division\n\nEnter your choice");
+			int choice=myObj.nextInt();
+			switch(choice) {
+			case 1:
+					addition();
+					break;
+			case 2:
+					System.out.println("Enter two numbers");
+					int num1=myObj.nextInt();
+					int num2=myObj.nextInt();
+					substraction(num1,num2);
+					break;
+			}
+			System.out.println("Do you want to continue.....");
+			ch=myObj.next().charAt(0);
+		}while(ch=='y'||ch=='Y');
+		if(ch=='n'||ch=='N') {
+			System.out.println("Thank you visit again");
+		}
+	}
+}
+
+
+//Default and parametrized constructor
+import java.util.Scanner;
+public class Employee {
+	private int empId;
+	private String name;
+	private double salary;
+	public Employee() {
+		System.out.println("Default constructor is called");
+		empId=0;
+		name="";
+		salary=0;
+	}
+	public Employee(int empId,String name,double salary) {
+		System.out.println("Parameterised constructor is called");
+		this.empId=empId;
+		this.name=name;
+		this.salary=salary;
+	}
+	
+	public void showEmployeeDetails() {
+		System.out.println("Employee details are ");
+		System.out.println("EmpId"+empId+" Name"+name+"Salary"+salary );
+	}
+	public static void main(String[] args) {
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Enter empId ");
+		int id=myObj.nextInt();
+		System.out.println("Enter name");
+		myObj.nextLine();
+		String name=myObj.nextLine();
+		System.out.println("Enter salary");
+		double sal=myObj.nextDouble();
+		Employee e1=new Employee(id,name,sal);
+		e1.showEmployeeDetails();
+	}
+}
+
+
+
